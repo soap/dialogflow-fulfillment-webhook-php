@@ -8,7 +8,7 @@ class Text extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    const v1MessageObjectText = 0;
+    protected const v1MessageObjectText = 0;
 
     /** @var string */
     protected $text;

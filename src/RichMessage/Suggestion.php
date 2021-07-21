@@ -8,7 +8,7 @@ class Suggestion extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    const v1MessageObjectSuggestions = 2;
+    protected const v1MessageObjectSuggestions = 2;
 
     /** @var array */
     protected $replies = [];

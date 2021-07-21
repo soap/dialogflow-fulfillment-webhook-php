@@ -8,7 +8,7 @@ class Card extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    const v1MessageObjectCard = 1;
+    protected const v1MessageObjectCard = 1;
 
     /** @var string */
     protected $title;

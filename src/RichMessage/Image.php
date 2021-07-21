@@ -8,7 +8,7 @@ class Image extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    const v1MessageObjectImage = 3;
+    protected const v1MessageObjectImage = 3;
 
     /** @var string */
     protected $imageUrl;

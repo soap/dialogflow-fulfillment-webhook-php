@@ -6,8 +6,8 @@ use RuntimeException;
 
 abstract class RichMessage
 {
-    const API_V1 = 1;
-    const API_V2 = 2;
+    protected const API_V1 = 1;
+    protected const API_V2 = 2;
 
     protected $agentVersion;
     protected $requestSource;
