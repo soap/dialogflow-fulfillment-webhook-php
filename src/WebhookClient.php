@@ -500,7 +500,7 @@ class WebhookClient extends RichMessage
             $out['fulfillmentMessages'] = $messages;
         }
 
-        if ($this->text) {
+        if (!empty($this->text)) {
             $out['fulfillmentText'] = $this->text;
         }
 
