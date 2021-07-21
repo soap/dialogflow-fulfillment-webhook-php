@@ -64,7 +64,7 @@ class WebhookClient extends RichMessage
 
     private function parseRequestV1($data)
     {
-        $this->agentVersion = 1;
+        $this->agentVersion = self::API_V1;
 
         $this->intent = $data['result']['metadata']['intentName'];
         $this->action = (isset($data['result']['action'])) ? $data['result']['action'] : null;
@@ -107,7 +107,7 @@ class WebhookClient extends RichMessage
 
     private function parseRequestV2($data)
     {
-        $this->agentVersion = 2;
+        $this->agentVersion = self::API_V2;
 
         $this->intent = $data['queryResult']['intent']['displayName'];
         $this->action = (isset($data['queryResult']['action'])) ? $data['queryResult']['action'] : null;
