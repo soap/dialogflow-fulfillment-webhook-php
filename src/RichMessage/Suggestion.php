@@ -10,15 +10,14 @@ class Suggestion extends RichMessage
      */
     protected const V1MESSAGEOBJECTSUGGESTIONS = 2;
 
-    /** @var array */
-    protected $replies = [];
+    protected array $replies = [];
 
     /**
      * Create a new Suggestion instance.
      *
      * @param string|array|null $reply
      *
-     * @return Dialogflow\Response\Suggestion
+     * @return self
      */
     public static function create($reply = null)
     {

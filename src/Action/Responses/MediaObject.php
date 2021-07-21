@@ -4,27 +4,20 @@ namespace Dialogflow\Action\Responses;
 
 class MediaObject
 {
-    /** @var string */
-    protected $url;
+    protected string $url;
 
-    /** @var null|string */
-    protected $name;
+    protected ?string $name;
 
-    /** @var null|string */
-    protected $description;
+    protected ?string $description;
 
-    /** @var null|string */
-    protected $icon;
+    protected ?string $icon;
 
-    /** @var null|string */
-    protected $image;
+    protected ?string $image;
 
     /**
      * Create a new MediaObject instance.
      *
      * @param string $url Media URL
-     *
-     * @return Dialogflow\Action\Responses\MediaObject
      */
     public function __construct($url)
     {
@@ -36,7 +29,7 @@ class MediaObject
      *
      * @param string $url Media URL
      *
-     * @return Dialogflow\Action\Responses\MediaObject
+     * @return self
      */
     public static function create($url)
     {
@@ -48,7 +41,7 @@ class MediaObject
      *
      * @param string $name
      *
-     * @return Dialogflow\Action\Responses\MediaObject
+     * @return self
      */
     public function name($name)
     {
@@ -62,7 +55,7 @@ class MediaObject
      *
      * @param string $description
      *
-     * @return Dialogflow\Action\Responses\MediaObject
+     * @return self
      */
     public function description($description)
     {
@@ -76,7 +69,7 @@ class MediaObject
      *
      * @param string $icon
      *
-     * @return Dialogflow\Action\Responses\MediaObject
+     * @return self
      */
     public function icon($icon)
     {
@@ -90,7 +83,7 @@ class MediaObject
      *
      * @param string $image
      *
-     * @return Dialogflow\Action\Responses\MediaObject
+     * @return self
      */
     public function image($image)
     {

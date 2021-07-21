@@ -7,10 +7,13 @@ namespace Dialogflow\Action\Types;
  */
 class PostalAddress
 {
+    private array $data = [];
+
     /**
      * @param array $data request array
      */
-    public function __construct($data)
+    public function __construct(array $data)
     {
+        $this->data = $data;
     }
 }

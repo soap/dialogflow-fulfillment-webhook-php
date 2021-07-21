@@ -6,21 +6,16 @@ use Dialogflow\Action\Interfaces\ResponseInterface;
 
 class SimpleResponse implements ResponseInterface
 {
-    /** @var null|string */
-    protected $displayText;
+    protected ?string $displayText;
 
-    /** @var null|string */
-    protected $ssml;
+    protected ?string $ssml;
 
-    /** @var null|string */
-    protected $textToSpeech;
+    protected ?string $textToSpeech;
 
     /**
      * Create a new Simple Response instance.
      *
      * @param string|array $options (optional) options
-     *
-     * @return Dialogflow\Action\Responses\SimpleResponse
      */
     public function __construct($options = null)
     {
@@ -39,7 +34,7 @@ class SimpleResponse implements ResponseInterface
      *
      * @param string|array $options (optional) options
      *
-     * @return Dialogflow\Action\Responses\SimpleResponse
+     * @return self
      */
     public static function create($options = null)
     {
@@ -51,7 +46,7 @@ class SimpleResponse implements ResponseInterface
      *
      * @param string $displayText
      *
-     * @return Dialogflow\Action\Responses\SimpleResponse
+     * @return self
      */
     public function displayText($displayText)
     {
@@ -65,7 +60,7 @@ class SimpleResponse implements ResponseInterface
      *
      * @param string $ssml
      *
-     * @return Dialogflow\Action\Responses\SimpleResponse
+     * @return self
      */
     public function ssml($ssml)
     {
@@ -79,7 +74,7 @@ class SimpleResponse implements ResponseInterface
      *
      * @param string $textToSpeech
      *
-     * @return Dialogflow\Action\Responses\SimpleResponse
+     * @return self
      */
     public function textToSpeech($textToSpeech)
     {

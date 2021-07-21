@@ -8,15 +8,15 @@ use Dialogflow\Action\Questions\ListCard\Option;
 class ListCard implements QuestionInterface
 {
     /** @var string */
-    protected $title;
+    protected string $title;
 
     /** @var Option[] */
-    protected $options;
+    protected array $options = [];
 
     /**
      * Create a new List instance.
      *
-     * @return Dialogflow\Action\Questions\ListCard
+     * @return self
      */
     public static function create()
     {
@@ -28,7 +28,7 @@ class ListCard implements QuestionInterface
      *
      * @param string $title
      *
-     * @return Dialogflow\Action\Questions\ListCard
+     * @return self
      */
     public function title($title)
     {
@@ -42,7 +42,7 @@ class ListCard implements QuestionInterface
      *
      * @param \Dialogflow\Action\Questions\ListCard\Option $option
      *
-     * @return Dialogflow\Action\Questions\ListCard
+     * @return self
      */
     public function addOption(Option $option)
     {
@@ -54,16 +54,17 @@ class ListCard implements QuestionInterface
     /**
      * Render a single Rich Response item as array.
      *
-     * @return null|array
+     * @return array
      */
     public function renderRichResponseItem()
     {
+        return [];
     }
 
     /**
      * Render System Intent as array.
      *
-     * @return null|array
+     * @return array
      */
     public function renderSystemIntent()
     {

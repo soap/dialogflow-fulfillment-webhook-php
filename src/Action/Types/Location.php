@@ -2,31 +2,26 @@
 
 namespace Dialogflow\Action\Types;
 
+use Dialogflow\Action\Types\LatLng;
+use Dialogflow\Action\Types\PostalAddress;
+
 class Location
 {
-    /** @var null|string */
-    protected $city;
+    protected ?string $city;
 
-    /** @var null|Dialogflow\Action\Types\LatLng */
-    protected $coordinates;
+    protected ?LatLng $coordinates;
 
-    /** @var null|string */
-    protected $formattedAddress;
+    protected ?string $formattedAddress;
 
-    /** @var null|string */
-    protected $name;
+    protected ?string $name;
 
-    /** @var null|string */
-    protected $notes;
+    protected ?string $notes;
 
-    /** @var null|string */
-    protected $phoneNumber;
+    protected ?string $phoneNumber;
 
-    /** @var null|Dialogflow\Action\Types\PostalAddress */
-    protected $postalAddress;
+    protected ?PostalAddress $postalAddress;
 
-    /** @var null|string */
-    protected $zipCode;
+    protected ?string $zipCode;
 
     /**
      * @param array $data request array
@@ -82,7 +77,7 @@ class Location
      * Geo coordinates.
      * Requires the DEVICE_PRECISE_LOCATION permission.
      *
-     * @return null|Dialogflow\Action\Types\LatLng
+     * @return null|LatLng
      */
     public function getCoordinates()
     {
@@ -136,7 +131,7 @@ class Location
      * Requires the DEVICE_PRECISE_LOCATION or
      * DEVICE_COARSE_LOCATION permission.
      *
-     * @return null|Dialogflow\Action\Types\PostalAddress
+     * @return null|PostalAddress
      */
     public function getPostalAddress()
     {

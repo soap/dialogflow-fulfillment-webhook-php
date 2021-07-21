@@ -8,19 +8,16 @@ use Dialogflow\Action\User\Storage;
 
 class User
 {
-    /** @var null|Dialogflow\Action\User\Name */
-    protected $name;
+    protected ?Name $name;
 
-    /** @var null|Dialogflow\Action\User\Storage */
-    protected $storage;
+    protected ?Storage $storage;
 
-    /** @var null|Carbon\Carbon * */
-    protected $lastSeen;
+    protected ?Carbon $lastSeen;
 
     /**
      * @param array $data request array
      */
-    public function __construct($data)
+    public function __construct(array $data)
     {
         if (isset($data['profile'])) {
             $this->name = new Name($data['profile']);
@@ -40,7 +37,7 @@ class User
     /**
      * User's permissioned name info.
      *
-     * @return null|Dialogflow\Action\User\Name
+     * @return null|Name
      */
     public function getName()
     {
@@ -50,7 +47,7 @@ class User
     /**
      * User's session storage.
      *
-     * @return null|Dialogflow\Action\User\Storage
+     * @return null|Storage
      */
     public function getStorage()
     {
@@ -60,7 +57,7 @@ class User
     /**
      * Timestamp for the last access from the user.
      *
-     * @return null|Carbon\Carbon
+     * @return null|Carbon
      */
     public function getLastSeen()
     {

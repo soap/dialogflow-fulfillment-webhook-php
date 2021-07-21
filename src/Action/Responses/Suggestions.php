@@ -6,7 +6,6 @@ use Dialogflow\Action\Interfaces\SuggestionInterface;
 
 class Suggestions implements SuggestionInterface
 {
-    /** @var array */
     protected array $suggestions = [];
 
     /**
@@ -14,7 +13,7 @@ class Suggestions implements SuggestionInterface
      *
      * @param array $suggestions
      *
-     * @return Dialogflow\Action\Responses\Suggestions
+     * @return self
      */
     public function __construct($suggestions)
     {
@@ -28,6 +27,7 @@ class Suggestions implements SuggestionInterface
      */
     public function renderRichResponseItem()
     {
+        return [];
     }
 
     /**

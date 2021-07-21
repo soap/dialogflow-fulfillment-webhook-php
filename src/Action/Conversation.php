@@ -2,41 +2,36 @@
 
 namespace Dialogflow\Action;
 
+use Dialogflow\Action\Arguments;
+use Dialogflow\Action\AvailableSurfaces;
+use Dialogflow\Action\Device;
 use Dialogflow\Action\Interfaces\LinkOutSuggestionInterface;
 use Dialogflow\Action\Interfaces\QuestionInterface;
 use Dialogflow\Action\Interfaces\ResponseInterface;
 use Dialogflow\Action\Interfaces\SuggestionInterface;
 use Dialogflow\Action\Responses\SimpleResponse;
-use Dialogflow\RichMessage\Payload;
+use Dialogflow\Action\Surface;
+use Dialogflow\Action\User;
 
 class Conversation
 {
-    /** @var null|string */
-    protected $id;
+    protected ?string $id;
 
-    /** @var bool */
-    protected $expectUserResponse = true;
+    protected bool $expectUserResponse = true;
 
-    /** @var bool */
-    protected $sandbox = false;
+    protected bool $sandbox = false;
 
-    /** @var Dialogflow\Action\Surface */
-    protected $surface;
+    protected ?Surface $surface;
 
-    /** @var null|Dialogflow\Action\AvailableSurfaces */
-    protected $availableSurfaces;
+    protected ?AvailableSurfaces $availableSurfaces;
 
-    /** @var null|Dialogflow\Action\User */
-    protected $user;
+    protected ?User $user;
 
-    /** @var null|Dialogflow\Action\Device */
-    protected $device;
+    protected ?Device $device;
 
-    /** @var null|Dialogflow\Action\Arguments */
-    protected $arguments;
+    protected ?Arguments $arguments;
 
-    /** @var array */
-    protected $messages = [];
+    protected array $messages = [];
 
     /**
      * Constructor for Conversation object.
@@ -75,9 +70,9 @@ class Conversation
     /**
      * Add a message.
      *
-     * @param string|Dialogflow\Action\Interfaces\ResponseInterface|Dialogflow\Action\Interfaces\QuestionInterface $message
+     * @param string|ResponseInterface|QuestionInterface $message
      *
-     * @return Conversation
+     * @return self
      */
     public function add($message)
     {
@@ -96,9 +91,9 @@ class Conversation
      * Asks to collect user's input.
      * Follow [the guidelines](https://developers.google.com/actions/policies/general-policies#user_experience) when prompting the user for a response.
      *
-     * @param string|Dialogflow\Action\Interfaces\ResponseInterface|Dialogflow\Action\Interfaces\QuestionInterface $message
+     * @param string|ResponseInterface|QuestionInterface $message
      *
-     * @return Conversation
+     * @return self
      */
     public function ask($message)
     {
@@ -112,9 +107,9 @@ class Conversation
     /**
      * Have Assistant render the speech response and close the mic.
      *
-     * @param string|Dialogflow\Action\Interfaces\ResponseInterface|Dialogflow\Action\Interfaces\QuestionInterface $message
+     * @param string|ResponseInterface|QuestionInterface $message
      *
-     * @return Conversation
+     * @return self
      */
     public function close($message)
     {
@@ -126,7 +121,7 @@ class Conversation
     }
 
     /**
-     * @return Dialogflow\Action\Surface
+     * @return Surface
      */
     public function getSurface()
     {
@@ -134,7 +129,7 @@ class Conversation
     }
 
     /**
-     * @return Dialogflow\Action\AvailableSurfaces
+     * @return AvailableSurfaces
      */
     public function getAvailableSurfaces()
     {
@@ -142,7 +137,7 @@ class Conversation
     }
 
     /**
-     * @return Dialogflow\Action\User
+     * @return User
      */
     public function getUser()
     {
@@ -150,7 +145,7 @@ class Conversation
     }
 
     /**
-     * @return null|Dialogflow\Action\Device
+     * @return null|Device
      */
     public function getDevice()
     {
@@ -158,7 +153,7 @@ class Conversation
     }
 
     /**
-     * @return Dialogflow\Action\Arguments
+     * @return Arguments
      */
     public function getArguments()
     {

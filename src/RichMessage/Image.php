@@ -10,15 +10,14 @@ class Image extends RichMessage
      */
     protected const V1MESSAGEOBJECTIMAGE = 3;
 
-    /** @var string */
-    protected $imageUrl;
+    protected string $imageUrl;
 
     /**
      * Create a new Image instance.
      *
-     * @param string $image image URL
+     * @param string $imageUrl image URL
      *
-     * @return Dialogflow\Response\Image
+     * @return self
      */
     public static function create($imageUrl = null)
     {

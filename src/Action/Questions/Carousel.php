@@ -7,16 +7,15 @@ use Dialogflow\Action\Questions\Carousel\Option;
 
 class Carousel implements QuestionInterface
 {
-    /** @var string */
-    protected $imageDisplayOptions;
+    protected string $imageDisplayOptions;
 
     /** @var Option[] */
-    protected $options;
+    protected array $options = [];
 
     /**
      * Create a new Carousel instance.
      *
-     * @return Dialogflow\Action\Questions\Carousel
+     * @return self
      */
     public static function create()
     {
@@ -28,7 +27,7 @@ class Carousel implements QuestionInterface
      *
      * @param string $imageDisplayOptions
      *
-     * @return Dialogflow\Action\Questions\Carousel
+     * @return self
      */
     public function imageDisplayOptions($imageDisplayOptions)
     {
@@ -40,9 +39,9 @@ class Carousel implements QuestionInterface
     /**
      * Add Carousel option.
      *
-     * @param \Dialogflow\Action\Questions\Carousel\Option $option
+     * @param Option $option
      *
-     * @return Dialogflow\Action\Questions\Carousel
+     * @return self
      */
     public function addOption(Option $option)
     {
@@ -58,6 +57,7 @@ class Carousel implements QuestionInterface
      */
     public function renderRichResponseItem()
     {
+        return null;
     }
 
     /**

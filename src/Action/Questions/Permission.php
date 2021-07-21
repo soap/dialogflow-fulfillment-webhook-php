@@ -7,14 +7,11 @@ use RuntimeException;
 
 class Permission implements QuestionInterface
 {
-    /** @var string */
-    protected $context;
+    protected string $context;
 
-    /** @var array */
-    protected $permissions;
+    protected array $permissions = [];
 
-    /** @var array */
-    protected $validPermissions = [
+    protected array $validPermissions = [
         'NAME',
         'DEVICE_PRECISE_LOCATION',
         'DEVICE_COARSE_LOCATION',
@@ -28,8 +25,6 @@ class Permission implements QuestionInterface
      * @param array  $permissions
      *
      * @throws RuntimeException
-     *
-     * @return Dialogflow\Action\Questions\Permission
      */
     public function __construct($context, $permissions)
     {
@@ -50,7 +45,7 @@ class Permission implements QuestionInterface
      * @param string $context
      * @param array  $permissions
      *
-     * @return Dialogflow\Action\Questions\ListCard
+     * @return self
      */
     public static function create($context, $permissions)
     {
@@ -64,11 +59,11 @@ class Permission implements QuestionInterface
      */
     public function renderRichResponseItem()
     {
-        $out = [];
-
-        $out['simpleResponse'] = ['textToSpeech' => 'PLACEHOLDER_FOR_PERMISSION'];
-
-        return $out;
+        return [
+            'simpleResponse' => [
+                'textToSpeech' => 'PLACEHOLDER_FOR_PERMISSION',
+            ],
+        ];
     }
 
     /**
@@ -78,15 +73,13 @@ class Permission implements QuestionInterface
      */
     public function renderSystemIntent()
     {
-        $out = [];
-
-        $out['intent'] = 'actions.intent.PERMISSION';
-        $out['data'] = [
-            '@type'       => 'type.googleapis.com/google.actions.v2.PermissionValueSpec',
-            'optContext'  => $this->context,
-            'permissions' => $this->permissions,
+        return [
+            'intent' => 'actions.intent.PERMISSION',
+            'data' => [
+                '@type'       => 'type.googleapis.com/google.actions.v2.PermissionValueSpec',
+                'optContext'  => $this->context,
+                'permissions' => $this->permissions,
+            ],
         ];
-
-        return $out;
     }
 }

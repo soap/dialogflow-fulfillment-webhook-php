@@ -6,10 +6,8 @@ use Dialogflow\Action\Interfaces\ResponseInterface;
 
 class Image implements ResponseInterface
 {
-    /** @var string */
     protected string $imageUrl;
 
-    /** @var string */
     protected string $accessibilityText;
 
     /**
@@ -17,8 +15,6 @@ class Image implements ResponseInterface
      *
      * @param string $imageUrl          image URL
      * @param string $accessibilityText (optional) accessibility text of the image
-     *
-     * @return Dialogflow\Action\Responses\Image
      */
     public function __construct($imageUrl, $accessibilityText = null)
     {
@@ -32,7 +28,7 @@ class Image implements ResponseInterface
      * @param string $imageUrl          image URL
      * @param string $accessibilityText (optional) accessibility text of the image
      *
-     * @return Dialogflow\Action\Responses\Image
+     * @return self
      */
     public static function create($imageUrl, $accessibilityText = null)
     {

@@ -9,9 +9,9 @@ abstract class RichMessage
     protected const API_V1 = 1;
     protected const API_V2 = 2;
 
-    protected $agentVersion;
-    protected $requestSource;
-    protected $fallbackText;
+    protected string $agentVersion;
+    protected string $requestSource;
+    protected string $fallbackText;
 
     protected $v2PlatformMap = [
         'unspecified'        => 'PLATFORM_UNSPECIFIED',

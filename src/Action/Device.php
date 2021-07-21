@@ -6,8 +6,7 @@ use Dialogflow\Action\Types\Location;
 
 class Device
 {
-    /** @var null|Dialogflow\Action\Types\Location */
-    protected $location;
+    protected ?Location $location;
 
     /**
      * @param array $data request array
@@ -22,7 +21,7 @@ class Device
     /**
      * If granted permission to device's location in previous intent, returns device's location.
      *
-     * @return null|Dialogflow\Action\Types\Location
+     * @return null|Location
      */
     public function getLocation()
     {
