@@ -8,7 +8,7 @@ class Text extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    protected const v1MessageObjectText = 0;
+    protected const V1MESSAGEOBJECTTEXT = 0;
 
     /** @var string */
     protected $text;
@@ -66,7 +66,7 @@ class Text extends RichMessage
             ];
         } else {
             $out = [
-                'type'   => self::v1MessageObjectText,
+                'type'   => self::V1MESSAGEOBJECTTEXT,
                 'speech' => $this->text,
             ];
 

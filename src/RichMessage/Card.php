@@ -8,7 +8,7 @@ class Card extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    protected const v1MessageObjectCard = 1;
+    protected const V1MESSAGEOBJECTCARD = 1;
 
     /** @var string */
     protected $title;
@@ -129,7 +129,7 @@ class Card extends RichMessage
             return $out;
         } else {
             $out = [
-                'type'  => self::v1MessageObjectCard,
+                'type'  => self::V1MESSAGEOBJECTCARD,
                 'title' => $this->title,
             ];
 

@@ -8,7 +8,7 @@ class Payload extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    protected const v1MessageObjectText = 0;
+    protected const V1MESSAGEOBJECTTEXT = 0;
 
     /**
      * Create a new Payload instance.
