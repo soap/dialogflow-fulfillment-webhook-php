@@ -32,7 +32,6 @@ class WebhookClient extends RichMessage
 
     protected array $messages = [];
 
-    /** @var string */
     protected string $text;
 
     protected array $outgoingContexts = [];
