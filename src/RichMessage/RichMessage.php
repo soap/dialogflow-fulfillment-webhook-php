@@ -13,7 +13,7 @@ abstract class RichMessage
     protected string $requestSource;
     protected string $fallbackText;
 
-    protected $v2PlatformMap = [
+    protected array $v2PlatformMap = [
         'unspecified'        => 'PLATFORM_UNSPECIFIED',
         'facebook'           => 'FACEBOOK',
         'slack'              => 'SLACK',
@@ -27,7 +27,7 @@ abstract class RichMessage
         'DIALOGFLOW_CONSOLE' => 'DIALOGFLOW_CONSOLE',
     ];
 
-    protected $supportedRichMessagePlatforms = [
+    protected array $supportedRichMessagePlatforms = [
         'facebook', 'slack', 'telegram', 'kik', 'skype', 'line', 'viber', 'google', 'DIALOGFLOW_CONSOLE',
     ];
 
