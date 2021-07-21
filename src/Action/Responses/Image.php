@@ -6,6 +6,12 @@ use Dialogflow\Action\Interfaces\ResponseInterface;
 
 class Image implements ResponseInterface
 {
+    /** @var string */
+    protected string $imageUrl;
+
+    /** @var string */
+    protected string $accessibilityText;
+
     /**
      * Create a new Image instance.
      *

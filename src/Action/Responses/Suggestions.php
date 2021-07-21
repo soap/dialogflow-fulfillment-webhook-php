@@ -6,10 +6,13 @@ use Dialogflow\Action\Interfaces\SuggestionInterface;
 
 class Suggestions implements SuggestionInterface
 {
+    /** @var array */
+    protected array $suggestions = [];
+
     /**
      * Create a new Suggestions instance.
      *
-     * @param string|array $imageUrl suggestions
+     * @param array $suggestions
      *
      * @return Dialogflow\Action\Responses\Suggestions
      */

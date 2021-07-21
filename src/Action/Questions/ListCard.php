@@ -10,6 +10,9 @@ class ListCard implements QuestionInterface
     /** @var string */
     protected $title;
 
+    /** @var Option[] */
+    protected $options;
+
     /**
      * Create a new List instance.
      *

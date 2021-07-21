@@ -10,6 +10,9 @@ class Carousel implements QuestionInterface
     /** @var string */
     protected $imageDisplayOptions;
 
+    /** @var Option[] */
+    protected $options;
+
     /**
      * Create a new Carousel instance.
      *
