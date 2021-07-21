@@ -20,7 +20,8 @@ class WebhookClient extends RichMessage
 
     protected array $parameters = [];
 
-    protected ?array $contexts;
+    /** @var Context[] */
+    protected array $contexts = [];
 
     protected string $requestSource;
 
@@ -197,7 +198,7 @@ class WebhookClient extends RichMessage
      * Get contexts.
      * Reference: https://dialogflow.com/docs/actions-and-parameters.
      *
-     * @return array|null
+     * @return array
      */
     public function getContexts()
     {
@@ -214,11 +215,9 @@ class WebhookClient extends RichMessage
      */
     public function getContext($name)
     {
-        if (is_array($this->contexts)) {
-            foreach ($this->contexts as $context) {
-                if ($context->getName() == $name) {
-                    return $context;
-                }
+        foreach ($this->contexts as $context) {
+            if ($context->getName() == $name) {
+                return $context;
             }
         }
         return null;
