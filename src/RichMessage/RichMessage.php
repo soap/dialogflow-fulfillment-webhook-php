@@ -9,7 +9,7 @@ abstract class RichMessage
     protected const API_V1 = 1;
     protected const API_V2 = 2;
 
-    protected string $agentVersion;
+    protected int $agentVersion = self::API_V2;
     protected string $requestSource;
     protected string $fallbackText;
 

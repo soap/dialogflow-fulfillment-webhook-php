@@ -10,7 +10,7 @@ use RuntimeException;
 
 class WebhookClient extends RichMessage
 {
-    protected string $agentVersion;
+    protected int $agentVersion = self::API_V2;
 
     protected string $intent;
 
