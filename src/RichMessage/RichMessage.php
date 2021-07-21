@@ -14,20 +14,21 @@ abstract class RichMessage
     protected $fallbackText;
 
     protected $v2PlatformMap = [
-        'unspecified'   => 'PLATFORM_UNSPECIFIED',
-        'facebook'      => 'FACEBOOK',
-        'slack'         => 'SLACK',
-        'slack_testbot' => 'SLACK',
-        'telegram'      => 'TELEGRAM',
-        'kik'           => 'KIK',
-        'skype'         => 'SKYPE',
-        'line'          => 'LINE',
-        'viber'         => 'VIBER',
-        'google'        => 'ACTIONS_ON_GOOGLE',
+        'unspecified'        => 'PLATFORM_UNSPECIFIED',
+        'facebook'           => 'FACEBOOK',
+        'slack'              => 'SLACK',
+        'slack_testbot'      => 'SLACK',
+        'telegram'           => 'TELEGRAM',
+        'kik'                => 'KIK',
+        'skype'              => 'SKYPE',
+        'line'               => 'LINE',
+        'viber'              => 'VIBER',
+        'google'             => 'ACTIONS_ON_GOOGLE',
+        'DIALOGFLOW_CONSOLE' => 'DIALOGFLOW_CONSOLE',
     ];
 
     protected $supportedRichMessagePlatforms = [
-        'facebook', 'slack', 'telegram', 'kik', 'skype', 'line', 'viber', 'google',
+        'facebook', 'slack', 'telegram', 'kik', 'skype', 'line', 'viber', 'google', 'DIALOGFLOW_CONSOLE',
     ];
 
     /** @var array */
