@@ -117,6 +117,7 @@ abstract class RichMessage
      */
     protected function renderV1()
     {
+        return [];
     }
 
     /**
@@ -126,5 +127,6 @@ abstract class RichMessage
      */
     protected function renderV2()
     {
+        return [];
     }
 }
