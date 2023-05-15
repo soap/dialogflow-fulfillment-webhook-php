@@ -8,17 +8,16 @@ class Image extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    const v1MessageObjectImage = 3;
+    protected const V1MESSAGEOBJECTIMAGE = 3;
 
-    /** @var string */
-    protected $imageUrl;
+    protected string $imageUrl;
 
     /**
      * Create a new Image instance.
      *
-     * @param string $image image URL
+     * @param string $imageUrl image URL
      *
-     * @return Dialogflow\Response\Image
+     * @return self
      */
     public static function create($imageUrl = null)
     {
@@ -63,7 +62,7 @@ class Image extends RichMessage
             return $out;
         } else {
             $out = [
-                'type'     => self::v1MessageObjectImage,
+                'type'     => self::V1MESSAGEOBJECTIMAGE,
                 'platform' => $this->requestSource,
             ];
 

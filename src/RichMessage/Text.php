@@ -8,18 +8,16 @@ class Text extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    const v1MessageObjectText = 0;
+    protected const V1MESSAGEOBJECTTEXT = 0;
 
-    /** @var string */
-    protected $text;
+    protected string $text;
 
-    /** @var string */
-    protected $ssml;
+    protected string $ssml;
 
     /**
      * Create a new Text instance.
      *
-     * @return Dialogflow\Response\Text
+     * @return self
      */
     public static function create()
     {
@@ -41,7 +39,7 @@ class Text extends RichMessage
     /**
      * Set the SSML for a Text.
      *
-     * @param string $text containing the SSML response content
+     * @param string $ssml containing the SSML response content
      */
     public function ssml($ssml)
     {
@@ -66,7 +64,7 @@ class Text extends RichMessage
             ];
         } else {
             $out = [
-                'type'   => self::v1MessageObjectText,
+                'type'   => self::V1MESSAGEOBJECTTEXT,
                 'speech' => $this->text,
             ];
 

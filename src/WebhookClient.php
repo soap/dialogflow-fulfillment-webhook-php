@@ -10,44 +10,32 @@ use RuntimeException;
 
 class WebhookClient extends RichMessage
 {
-    /** @var string */
-    protected $agentVersion;
+    protected int $agentVersion = self::API_V2;
 
-    /** @var string */
-    protected $intent;
+    protected string $intent;
 
-    /** @var string|null */
-    protected $action;
+    protected ?string $action;
 
-    /** @var string */
-    protected $session;
+    protected string $session;
 
-    /** @var array */
-    protected $parameters = [];
+    protected array $parameters = [];
 
-    /** @var array|null */
-    protected $contexts;
+    /** @var Context[] */
+    protected array $contexts = [];
 
-    /** @var string */
-    protected $requestSource;
+    protected string $requestSource;
 
-    /** @var array|null */
-    protected $originalRequest;
+    protected ?array $originalRequest;
 
-    /** @var string */
-    protected $query;
+    protected string $query;
 
-    /** @var string */
-    protected $locale;
+    protected string $locale;
 
-    /** @var array */
-    protected $messages = [];
+    protected array $messages = [];
 
-    /** @var string */
-    protected $text;
+    protected string $text;
 
-    /** @var array */
-    protected $outgoingContexts = [];
+    protected array $outgoingContexts = [];
 
     /**
      * Constructor for WebhookClient object.
@@ -77,7 +65,7 @@ class WebhookClient extends RichMessage
 
     private function parseRequestV1($data)
     {
-        $this->agentVersion = 1;
+        $this->agentVersion = self::API_V1;
 
         $this->intent = $data['result']['metadata']['intentName'];
         $this->action = (isset($data['result']['action'])) ? $data['result']['action'] : null;
@@ -120,7 +108,7 @@ class WebhookClient extends RichMessage
 
     private function parseRequestV2($data)
     {
-        $this->agentVersion = 2;
+        $this->agentVersion = self::API_V2;
 
         $this->intent = $data['queryResult']['intent']['displayName'];
         $this->action = (isset($data['queryResult']['action'])) ? $data['queryResult']['action'] : null;
@@ -210,7 +198,7 @@ class WebhookClient extends RichMessage
      * Get contexts.
      * Reference: https://dialogflow.com/docs/actions-and-parameters.
      *
-     * @return array|null
+     * @return array
      */
     public function getContexts()
     {
@@ -227,13 +215,12 @@ class WebhookClient extends RichMessage
      */
     public function getContext($name)
     {
-        if (is_array($this->contexts)) {
-            foreach ($this->contexts as $context) {
-                if ($context->getName() == $name) {
-                    return $context;
-                }
+        foreach ($this->contexts as $context) {
+            if ($context->getName() == $name) {
+                return $context;
             }
         }
+        return null;
     }
 
     /**
@@ -281,9 +268,9 @@ class WebhookClient extends RichMessage
     /**
      * Response to incoming request.
      *
-     * @param string|\Dialogflow\Richmessage|\Dialogflow\Action\Conversation $message
+     * @param string|RichMessage|Conversation $message
      *
-     * @return \Dialogflow\WebhookClient
+     * @return self
      */
     public function reply($message)
     {
@@ -340,6 +327,7 @@ class WebhookClient extends RichMessage
                 return $outgoingContext;
             }
         }
+        return null;
     }
 
     /**
@@ -348,7 +336,7 @@ class WebhookClient extends RichMessage
      *
      * @param string|array|\Dialogflow\Context $context
      *
-     * @return \Dialogflow\WebhookClient
+     * @return self
      */
     public function setOutgoingContext($context)
     {
@@ -389,7 +377,7 @@ class WebhookClient extends RichMessage
      *
      * @param string $contextName
      *
-     * @return \Dialogflow\WebhookClient
+     * @return self
      */
     public function clearOutgoingContext($contextName)
     {
@@ -406,7 +394,7 @@ class WebhookClient extends RichMessage
      * Clear all existing outgoing contexts.
      * Reference: https://dialogflow.com/docs/contexts.
      *
-     * @return \Dialogflow\WebhookClient
+     * @return self
      */
     public function clearOutgoingContexts()
     {
@@ -421,7 +409,7 @@ class WebhookClient extends RichMessage
      *
      * @param array $contexts
      *
-     * @return \Dialogflow\WebhookClient
+     * @return self
      */
     public function setOutgoingContexts($contexts)
     {
@@ -491,8 +479,6 @@ class WebhookClient extends RichMessage
     /**
      * Render response as array for API V2.
      *
-     * @param string $session session
-     *
      * @return array
      */
     protected function renderV2()
@@ -513,7 +499,7 @@ class WebhookClient extends RichMessage
             $out['fulfillmentMessages'] = $messages;
         }
 
-        if ($this->text) {
+        if (!empty($this->text)) {
             $out['fulfillmentText'] = $this->text;
         }
 

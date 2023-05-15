@@ -8,17 +8,16 @@ class Suggestion extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    const v1MessageObjectSuggestions = 2;
+    protected const V1MESSAGEOBJECTSUGGESTIONS = 2;
 
-    /** @var array */
-    protected $replies = [];
+    protected array $replies = [];
 
     /**
      * Create a new Suggestion instance.
      *
      * @param string|array|null $reply
      *
-     * @return Dialogflow\Response\Suggestion
+     * @return self
      */
     public static function create($reply = null)
     {
@@ -68,7 +67,7 @@ class Suggestion extends RichMessage
             return $out;
         } else {
             $out = [
-                'type' => self::v1MessageObjectSuggestions,
+                'type' => self::V1MESSAGEOBJECTSUGGESTIONS,
             ];
 
             $out['replies'] = $this->replies;

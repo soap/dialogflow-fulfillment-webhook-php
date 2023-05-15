@@ -6,15 +6,12 @@ use Dialogflow\Action\Interfaces\QuestionInterface;
 
 class Confirmation implements QuestionInterface
 {
-    /** @var string */
-    protected $requestConfirmationText;
+    protected string $requestConfirmationText;
 
     /**
      * Constructor for Confirmation object.
      *
      * @param string $requestConfirmationText
-     *
-     * @return Dialogflow\Action\Questions\Confirmation
      */
     public function __construct($requestConfirmationText)
     {
@@ -24,34 +21,32 @@ class Confirmation implements QuestionInterface
     /**
      * Render a single Rich Response item as array.
      *
-     * @return null|array
+     * @return array
      */
     public function renderRichResponseItem()
     {
-        $out = [];
-
-        $out['simpleResponse'] = ['textToSpeech' => 'PLACEHOLDER_FOR_CONFIRMATION'];
-
-        return $out;
+        return [
+            'simpleResponse' => [
+                'textToSpeech' => 'PLACEHOLDER_FOR_CONFIRMATION',
+            ],
+        ];
     }
 
     /**
      * Render System Intent as array.
      *
-     * @return null|array
+     * @return array
      */
     public function renderSystemIntent()
     {
-        $out = [];
-
-        $out['intent'] = 'actions.intent.CONFIRMATION';
-        $out['data'] = [
-            '@type'      => 'type.googleapis.com/google.actions.v2.ConfirmationValueSpec',
-            'dialogSpec' => [
-                'requestConfirmationText' => $this->requestConfirmationText,
+        return [
+            'intent' => 'actions.intent.CONFIRMATION',
+            'data' => [
+                '@type'      => 'type.googleapis.com/google.actions.v2.ConfirmationValueSpec',
+                'dialogSpec' => [
+                    'requestConfirmationText' => $this->requestConfirmationText,
+                ],
             ],
         ];
-
-        return $out;
     }
 }

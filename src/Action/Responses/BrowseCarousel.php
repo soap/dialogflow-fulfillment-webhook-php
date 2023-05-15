@@ -7,16 +7,14 @@ use Dialogflow\Action\Responses\BrowseCarousel\Option;
 
 class BrowseCarousel implements ResponseInterface
 {
-    /** @var string */
-    protected $imageDisplayOptions;
+    protected string $imageDisplayOptions;
 
-    /** @var array */
-    protected $options;
+    protected array $options = [];
 
     /**
      * Create a new BrowseCarousel instance.
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel
+     * @return self
      */
     public static function create()
     {
@@ -28,7 +26,7 @@ class BrowseCarousel implements ResponseInterface
      *
      * @param string $imageDisplayOptions
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel
+     * @return self
      */
     public function imageDisplayOptions($imageDisplayOptions)
     {
@@ -40,9 +38,9 @@ class BrowseCarousel implements ResponseInterface
     /**
      * Add BrowseCarousel option.
      *
-     * @param \Dialogflow\Action\Responses\BrowseCarousel\Option $option
+     * @param Option $option
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel
+     * @return self
      */
     public function addOption(Option $option)
     {

@@ -4,10 +4,10 @@ namespace Dialogflow\Action;
 
 class Surface
 {
-    const CAPABILITY_AUDIO = 'actions.capability.AUDIO_OUTPUT';
-    const CAPABILITY_SCREEN = 'actions.capability.SCREEN_OUTPUT';
-    const CAPABILITY_MEDIA_PLAYBACK = 'actions.capability.MEDIA_RESPONSE_AUDIO';
-    const CAPABILITY_WEB_BROWSER = 'actions.capability.WEB_BROWSER';
+    protected const CAPABILITY_AUDIO = 'actions.capability.AUDIO_OUTPUT';
+    protected const CAPABILITY_SCREEN = 'actions.capability.SCREEN_OUTPUT';
+    protected const CAPABILITY_MEDIA_PLAYBACK = 'actions.capability.MEDIA_RESPONSE_AUDIO';
+    protected const CAPABILITY_WEB_BROWSER = 'actions.capability.WEB_BROWSER';
 
     /** @var bool */
     protected $hasScreen = false;

@@ -6,25 +6,20 @@ use Dialogflow\Action\Interfaces\ResponseInterface;
 
 class BasicCard implements ResponseInterface
 {
-    /** @var string */
-    protected $title;
+    protected string $title;
 
-    /** @var string */
-    protected $formattedText;
+    protected string $formattedText;
 
-    /** @var string */
-    protected $imageUrl;
+    protected string $imageUrl;
 
-    /** @var string */
-    protected $accessibilityText;
+    protected string $accessibilityText;
 
-    /** @var array */
-    protected $buttons = [];
+    protected array $buttons = [];
 
     /**
      * Create a new Basic Card instance.
      *
-     * @return Dialogflow\Action\Responses\BasicCard
+     * @return self
      */
     public static function create()
     {
@@ -36,7 +31,7 @@ class BasicCard implements ResponseInterface
      *
      * @param string $title
      *
-     * @return Dialogflow\Action\Responses\BasicCard
+     * @return self
      */
     public function title($title)
     {
@@ -50,7 +45,7 @@ class BasicCard implements ResponseInterface
      *
      * @param string $formattedText
      *
-     * @return Dialogflow\Action\Responses\BasicCard
+     * @return self
      */
     public function formattedText($formattedText)
     {
@@ -65,7 +60,7 @@ class BasicCard implements ResponseInterface
      * @param string $imageUrl          image URL
      * @param string $accessibilityText (optional) accessibility text of the image
      *
-     * @return Dialogflow\Action\Responses\BasicCard
+     * @return self
      */
     public function image($imageUrl, $accessibilityText = null)
     {
@@ -81,7 +76,7 @@ class BasicCard implements ResponseInterface
      * @param string $buttonText button text
      * @param string $buttonUrl  button link URL
      *
-     * @return Dialogflow\Action\Responses\BasicCard
+     * @return self
      */
     public function button($buttonText, $buttonUrl)
     {

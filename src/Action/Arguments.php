@@ -49,6 +49,7 @@ class Arguments
                 }
             }
         }
+        return null;
     }
 
     /**
@@ -98,7 +99,7 @@ class Arguments
      *
      * @param array $argument
      *
-     * @return Carbon\Carbon
+     * @return Carbon
      */
     private function getDateTime($argument)
     {
@@ -119,7 +120,7 @@ class Arguments
      *
      * @param array $argument
      *
-     * @return Dialogflow\Action\Types\Location
+     * @return Location
      */
     private function getPlace($argument)
     {

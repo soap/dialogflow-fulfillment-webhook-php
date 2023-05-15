@@ -4,28 +4,22 @@ namespace Dialogflow\Action\Responses\BrowseCarousel;
 
 class Option
 {
-    /** @var string */
-    protected $title;
+    protected string $title;
 
-    /** @var string */
-    protected $description;
+    protected string $description;
 
-    /** @var string */
-    protected $footer;
+    protected string $footer;
 
-    /** @var string */
-    protected $openUrlAction;
+    protected string $openUrlAction;
 
-    /** @var string */
-    protected $imageUrl;
+    protected string $imageUrl;
 
-    /** @var string */
-    protected $accessibilityText;
+    protected string $accessibilityText;
 
     /**
      * Create a new Option instance.
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel\Option
+     * @return self
      */
     public static function create()
     {
@@ -37,7 +31,7 @@ class Option
      *
      * @param string $title
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel\Option
+     * @return self
      */
     public function title($title)
     {
@@ -51,7 +45,7 @@ class Option
      *
      * @param string $description
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel\Option
+     * @return self
      */
     public function description($description)
     {
@@ -65,7 +59,7 @@ class Option
      *
      * @param string $footer
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel\Option
+     * @return self
      */
     public function footer($footer)
     {
@@ -82,7 +76,7 @@ class Option
      *
      * @param string $openUrlAction
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel\Option
+     * @return self
      */
     public function url($openUrlAction)
     {
@@ -97,7 +91,7 @@ class Option
      * @param string $imageUrl          image URL
      * @param string $accessibilityText (optional) accessibility text of the image
      *
-     * @return Dialogflow\Action\Responses\BrowseCarousel\Option
+     * @return self
      */
     public function image($imageUrl, $accessibilityText = null)
     {
@@ -115,7 +109,6 @@ class Option
     public function render()
     {
         $out = [];
-        $optionInfo = [];
 
         if ($this->title) {
             $out['title'] = $this->title;

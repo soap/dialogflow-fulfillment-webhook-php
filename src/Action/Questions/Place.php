@@ -9,28 +9,22 @@ class Place implements QuestionInterface
     /**
      * This is the initial response by location sub-dialog.
      * For example: "Where do you want to get picked up?".
-     *
-     * @var string
      */
-    protected $requestPrompt;
+    protected string $requestPrompt;
 
     /**
      * This is the context for seeking permissions.
      * For example: "To find a place to pick you up"
      * Prompt to user: "*To find a place to pick you up*, I just need to check your location.
      *     Can I get that from Google?".
-     *
-     * @var string
      */
-    protected $permissionContext;
+    protected string $permissionContext;
 
     /**
      * Constructor for Place object.
      *
      * @param string $requestPrompt     initial question
      * @param string $permissionContext the context for seeking permissions
-     *
-     * @return Dialogflow\Action\Questions\Place
      */
     public function __construct($requestPrompt, $permissionContext)
     {
@@ -45,11 +39,11 @@ class Place implements QuestionInterface
      */
     public function renderRichResponseItem()
     {
-        $out = [];
-
-        $out['simpleResponse'] = ['textToSpeech' => 'PLACEHOLDER'];
-
-        return $out;
+        return [
+            'simpleResponse' => [
+                'textToSpeech' => 'PLACEHOLDER',
+            ],
+        ];
     }
 
     /**
@@ -59,20 +53,18 @@ class Place implements QuestionInterface
      */
     public function renderSystemIntent()
     {
-        $out = [];
-
-        $out['intent'] = 'actions.intent.PLACE';
-        $out['data'] = [
-            '@type'      => 'type.googleapis.com/google.actions.v2.PlaceValueSpec',
-            'dialogSpec' => [
-                'extension' => [
-                    '@type'                 => 'type.googleapis.com/google.actions.v2.PlaceValueSpec.PlaceDialogSpec',
-                    'requestPrompt'         => $this->requestPrompt,
-                    'permissionContext'     => $this->permissionContext,
+        return [
+            'intent' => 'actions.intent.PLACE',
+            'data' => [
+                '@type'      => 'type.googleapis.com/google.actions.v2.PlaceValueSpec',
+                'dialogSpec' => [
+                    'extension' => [
+                        '@type'                 => 'type.googleapis.com/google.actions.v2.PlaceValueSpec.PlaceDialogSpec',
+                        'requestPrompt'         => $this->requestPrompt,
+                        'permissionContext'     => $this->permissionContext,
+                    ],
                 ],
             ],
         ];
-
-        return $out;
     }
 }

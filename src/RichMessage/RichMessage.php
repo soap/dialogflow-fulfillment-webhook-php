@@ -6,28 +6,29 @@ use RuntimeException;
 
 abstract class RichMessage
 {
-    const API_V1 = 1;
-    const API_V2 = 2;
+    protected const API_V1 = 1;
+    protected const API_V2 = 2;
 
-    protected $agentVersion;
-    protected $requestSource;
-    protected $fallbackText;
+    protected int $agentVersion = self::API_V2;
+    protected string $requestSource;
+    protected string $fallbackText;
 
-    protected $v2PlatformMap = [
-        'unspecified'   => 'PLATFORM_UNSPECIFIED',
-        'facebook'      => 'FACEBOOK',
-        'slack'         => 'SLACK',
-        'slack_testbot' => 'SLACK',
-        'telegram'      => 'TELEGRAM',
-        'kik'           => 'KIK',
-        'skype'         => 'SKYPE',
-        'line'          => 'LINE',
-        'viber'         => 'VIBER',
-        'google'        => 'ACTIONS_ON_GOOGLE',
+    protected array $v2PlatformMap = [
+        'unspecified'        => 'PLATFORM_UNSPECIFIED',
+        'facebook'           => 'FACEBOOK',
+        'slack'              => 'SLACK',
+        'slack_testbot'      => 'SLACK',
+        'telegram'           => 'TELEGRAM',
+        'kik'                => 'KIK',
+        'skype'              => 'SKYPE',
+        'line'               => 'LINE',
+        'viber'              => 'VIBER',
+        'google'             => 'ACTIONS_ON_GOOGLE',
+        'DIALOGFLOW_CONSOLE' => 'DIALOGFLOW_CONSOLE',
     ];
 
-    protected $supportedRichMessagePlatforms = [
-        'facebook', 'slack', 'telegram', 'kik', 'skype', 'line', 'viber', 'google',
+    protected array $supportedRichMessagePlatforms = [
+        'facebook', 'slack', 'telegram', 'kik', 'skype', 'line', 'viber', 'google', 'DIALOGFLOW_CONSOLE',
     ];
 
     /** @var array */
@@ -116,6 +117,7 @@ abstract class RichMessage
      */
     protected function renderV1()
     {
+        return [];
     }
 
     /**
@@ -125,5 +127,6 @@ abstract class RichMessage
      */
     protected function renderV2()
     {
+        return [];
     }
 }

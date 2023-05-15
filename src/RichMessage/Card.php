@@ -8,24 +8,20 @@ class Card extends RichMessage
      * Enum for Dialogflow v1 text message object
      * https://dialogflow.com/docs/reference/agent/message-objects.
      */
-    const v1MessageObjectCard = 1;
+    protected const V1MESSAGEOBJECTCARD = 1;
 
-    /** @var string */
-    protected $title;
+    protected string $title;
 
-    /** @var string */
-    protected $text;
+    protected string $text;
 
-    /** @var string */
-    protected $imageUrl;
+    protected string $imageUrl;
 
-    /** @var array */
-    protected $buttons = [];
+    protected array $buttons = [];
 
     /**
      * Create a new Card instance.
      *
-     * @return Dialogflow\Response\Card
+     * @return self
      */
     public static function create()
     {
@@ -59,7 +55,7 @@ class Card extends RichMessage
     /**
      * Set the image for a Card.
      *
-     * @param string $image image URL
+     * @param string $imageUrl image URL
      */
     public function image($imageUrl)
     {
@@ -129,7 +125,7 @@ class Card extends RichMessage
             return $out;
         } else {
             $out = [
-                'type'  => self::v1MessageObjectCard,
+                'type'  => self::V1MESSAGEOBJECTCARD,
                 'title' => $this->title,
             ];
 

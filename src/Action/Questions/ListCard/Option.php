@@ -4,28 +4,22 @@ namespace Dialogflow\Action\Questions\ListCard;
 
 class Option
 {
-    /** @var string */
-    protected $key;
+    protected string $key;
 
-    /** @var string */
-    protected $title;
+    protected string $title;
 
-    /** @var string */
-    protected $description;
+    protected string $description;
 
-    /** @var array */
-    protected $synonyms = [];
+    protected array $synonyms = [];
 
-    /** @var string */
-    protected $imageUrl;
+    protected string $imageUrl;
 
-    /** @var string */
-    protected $accessibilityText;
+    protected string $accessibilityText;
 
     /**
      * Create a new Option instance.
      *
-     * @return Dialogflow\Action\Questions\ListCard\Option
+     * @return self
      */
     public static function create()
     {
@@ -37,7 +31,7 @@ class Option
      *
      * @param string $key
      *
-     * @return Dialogflow\Action\Questions\ListCard\Option
+     * @return self
      */
     public function key($key)
     {
@@ -51,7 +45,7 @@ class Option
      *
      * @param array $synonyms
      *
-     * @return Dialogflow\Action\Questions\ListCard\Option
+     * @return self
      */
     public function synonyms($synonyms)
     {
@@ -65,7 +59,7 @@ class Option
      *
      * @param string $title
      *
-     * @return Dialogflow\Action\Questions\ListCard\Option
+     * @return self
      */
     public function title($title)
     {
@@ -79,7 +73,7 @@ class Option
      *
      * @param string $description
      *
-     * @return Dialogflow\Action\Questions\ListCard\Option
+     * @return self
      */
     public function description($description)
     {
@@ -94,7 +88,7 @@ class Option
      * @param string $imageUrl          image URL
      * @param string $accessibilityText (optional) accessibility text of the image
      *
-     * @return Dialogflow\Action\Questions\ListCard\Option
+     * @return self
      */
     public function image($imageUrl, $accessibilityText = null)
     {

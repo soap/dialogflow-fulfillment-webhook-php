@@ -6,19 +6,15 @@ use Dialogflow\Action\Interfaces\LinkOutSuggestionInterface;
 
 class LinkOutSuggestion implements LinkOutSuggestionInterface
 {
-    /** @var string */
-    protected $name;
+    protected string $name;
 
-    /** @var string */
-    protected $url;
+    protected string $url;
 
     /**
      * Create a new LinkOutSuggestion instance.
      *
      * @param string $name the name of the app or site this chip is linking to
      * @param string $url  URL
-     *
-     * @return Dialogflow\Action\Responses\LinkOutSuggestion
      */
     public function __construct($name, $url)
     {
@@ -33,6 +29,7 @@ class LinkOutSuggestion implements LinkOutSuggestionInterface
      */
     public function renderRichResponseItem()
     {
+        return null;
     }
 
     /**

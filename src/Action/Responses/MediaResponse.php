@@ -3,18 +3,16 @@
 namespace Dialogflow\Action\Responses;
 
 use Dialogflow\Action\Interfaces\ResponseInterface;
+use Dialogflow\Action\Responses\MediaObject;
 
 class MediaResponse implements ResponseInterface
 {
-    /** @var array */
-    protected $mediaObjects = [];
+    protected array $mediaObjects = [];
 
     /**
      * Create a new MediaResponse instance.
      *
-     * @param null|Dialogflow\Action\Responses\MediaObject $mediaObject Media objects
-     *
-     * @return Dialogflow\Action\Responses\MediaResponse
+     * @param null|MediaObject $mediaObject Media objects
      */
     public function __construct($mediaObject = null)
     {
@@ -26,9 +24,9 @@ class MediaResponse implements ResponseInterface
     /**
      * Create a new MediaResponse instance.
      *
-     * @param null|Dialogflow\Action\Responses\MediaObject $mediaObject Media objects
+     * @param null|MediaObject $mediaObject Media objects
      *
-     * @return Dialogflow\Action\Responses\MediaResponse
+     * @return MediaResponse
      */
     public static function create($mediaObject = null)
     {
@@ -38,9 +36,9 @@ class MediaResponse implements ResponseInterface
     /**
      * Add MediaObject.
      *
-     * @param Dialogflow\Action\Responses\MediaObject $mediaObject
+     * @param MediaObject $mediaObject
      *
-     * @return Dialogflow\Action\Responses\MediaResponse
+     * @return MediaResponse
      */
     public function add($mediaObject)
     {
